@@ -15,5 +15,4 @@ dependencies:
   - notebook
   - jupyter_contrib_nbextensions
   - scikit-image
-prefix: C:\Users\Fafa\miniconda3\envs\see_3_6
 
