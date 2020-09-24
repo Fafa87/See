@@ -1,0 +1,19 @@
+name: see_3_6
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.6
+  - numpy
+  - fire
+  - imageio
+  - pathlib
+  - attrdict
+  - tqdm
+  - pandas
+  - matplotlib
+  - notebook
+  - jupyter_contrib_nbextensions
+  - scikit-image
+prefix: C:\Users\Fafa\miniconda3\envs\see_3_6
+
