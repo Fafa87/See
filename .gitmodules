@@ -1,0 +1,3 @@
+[submodule "vendor/SEP"]
+	path = vendor/SEP
+	url = git@github.com:Fafa87/SEP.git
