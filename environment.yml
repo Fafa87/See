@@ -14,5 +14,6 @@ dependencies:
   - matplotlib
   - notebook
   - jupyter_contrib_nbextensions
+  - opencv
   - scikit-image
 

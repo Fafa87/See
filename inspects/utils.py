@@ -9,9 +9,13 @@ from matplotlib.colors import ListedColormap, NoNorm
 
 random_colormap = ListedColormap([(0, 0, 0)] + list(np.random.rand(20000, 3)))
 
-root_dir = Path(__file__).parent.parent
-if root_dir not in sys.path:
-    sys.path.append(str(root_dir))
+def add_root_to_path(steps_up):
+    root_dir = Path(__file__)
+    for _ in range(steps_up):
+        root_dir = root_dir.parent
+
+    if root_dir not in sys.path:
+        sys.path.append(str(root_dir))
 
 
 def pick_path(paths):
@@ -25,16 +29,21 @@ def pick_path(paths):
 
 def info(array, name=""):
     print(name, type(array))
-    print("Shape:", array.shape, "Type:", array.dtype, "Min-max:", array.min(), array.max())
+    print("Shape:", array.shape, ", Type:", array.dtype, ", Min-max:", array.min(), array.max())
 
 
-def show_all(rows, cols, *args, **kwargs):
+def show(*args, **kwargs):
+    show_all(1, len(args), *args, **kwargs)
+
+
+def show_all(rows, cols, *args, display_now=True, **kwargs):
     """
     Presents given arrays in form of grid as matplotlib figure.
     Args:
         rows: number of rows to show.
         cols: number of columns to show.
         *args: list of numpy arrays to show
+        display_now: should the figure be displayed immediately
         **kwargs:
             - scale: define figsize
             - cmap: value mapping for each or every array
@@ -97,6 +106,8 @@ def show_all(rows, cols, *args, **kwargs):
                 ax.imshow(array, norm=NoNorm(), cmap=gray_cmaps[map_id])
 
     plt.close(fig)
+    if display_now:
+        display(fig)
     return fig
 
 
