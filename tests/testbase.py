@@ -1,8 +1,8 @@
 import os
 import pathlib
 import shutil
-import unittest
 import tempfile
+import unittest
 
 import imageio
 import numpy as np
@@ -27,7 +27,7 @@ class TestBase(unittest.TestCase):
         self.to_clear.append(path)
         return open(path, "w")
 
-    def test_dir(self, *path_components):
+    def root_test_dir(self, *path_components):
         return str(pathlib.Path(__file__).parent.joinpath(*path_components))
 
     def create_temp_dir(self):
@@ -41,3 +41,10 @@ class TestBase(unittest.TestCase):
         right = position[0] + radius
         bottom = position[1] + radius
         image[top: bottom + 1, left: right + 1] = value
+
+    def np_assert_not_equal(self, expected, actual):
+        with np.testing.assert_raises(AssertionError):
+            np.testing.assert_array_equal(expected, actual)
+
+    def np_assert_equal(self, expected, actual):
+        np.testing.assert_array_equal(expected, actual)
