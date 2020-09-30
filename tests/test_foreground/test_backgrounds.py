@@ -55,8 +55,8 @@ class TestStaticBackgroundModel(tests.testbase.TestBase):
         self.assertIn('error', model_details)
         self.assertIn('mask', model_details)
         nptest.assert_equal(model_details['background'][background_mask], self.background[background_mask])
-        nptest.assert_equal(model_details['error'][self.foreground_mask == 0], 0)
-        nptest.assert_equal(model_details['error'][self.foreground_mask != 0], 255)
+        nptest.assert_equal(model_details['error'][self.foreground_mask == 0], 1)  # we assume it is never perfect
+        nptest.assert_equal(model_details['error'][self.foreground_mask != 0], 64)
         nptest.assert_equal(model_details['mask'], self.foreground_mask == 0)
 
     def test_diff_rgb(self):

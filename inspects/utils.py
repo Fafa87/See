@@ -29,7 +29,9 @@ def pick_path(paths):
 
 def info(array, name=""):
     print(name, type(array))
-    print("Shape:", array.shape, ", Type:", array.dtype, ", Min-max:", array.min(), array.max())
+    info_string = f"Shape: {array.shape}, Type: {array.dtype}, Min-max: {array.min(), array.max()}"
+    info_string += f", Mean: {array.mean()}"
+    print(info_string)
 
 
 def show(*args, **kwargs):
