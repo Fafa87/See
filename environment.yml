@@ -5,7 +5,7 @@ channels:
 dependencies:
   - python=3.6
   - pip
-  - numpy=1.19.*
+  - numpy
   - fire
   - imageio
   - pathlib
@@ -15,6 +15,6 @@ dependencies:
   - matplotlib
   - notebook
   - jupyter_contrib_nbextensions
-  - opencv=4.4.*
-  - scikit-image=0.17.*
+  - scikit-image
+  - opencv
 

@@ -40,6 +40,5 @@ install:
   - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION pytest
   - conda env update -n test-environment --file environment.yml
   - conda activate test-environment
-  - python3 setup.py install
 script:
-  - python3 -m pytest
+  - python3 -m pytest --ignore=vendor/
