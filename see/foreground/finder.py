@@ -2,10 +2,11 @@ import cv2
 import numpy as np
 
 import see._commons.mathmap as mathmap
+import see.foreground.aided_segmentation
 from see.foreground.backgrounds import StaticBackgroundModel
 
 
-class ForegroundFinder:
+class ForegroundFinder(see.foreground.aided_segmentation.AidedSegmentation):
     def __init__(self, background_model: StaticBackgroundModel, confident_size=1, cleaning=None):
         """
         Args:
